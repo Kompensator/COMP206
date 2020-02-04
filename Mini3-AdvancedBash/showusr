@@ -1,5 +1,26 @@
 #Do not include a sh-bang (#!/bin/bash) in this script.
 #Do not write code outside of this function body
-function fname()
-{
+
+# defining fname
+function fname() {
+    local userID=$1
+    # check if userID is given in function call
+    if [ -z $userID ]
+    then
+        FNAME="ERROR"
+        return 1
+    fi    
+        
+    name=`pinky -f $userID`
+    # check if userID is found
+    if [ -z "$name" ]
+    then
+        FNAME="NOTFOUND"
+        return 0
+    fi
+
+    # extracting the second element of the list
+    set $name
+    FNAME=$2
+    return 0
 }
