@@ -24,8 +24,8 @@ then
     exit 3
 fi
 
-# search for files in dir with grep
-files=`ls $DIRNAME | grep $EXTENSION`
+# list all files in dir 
+files=`ls $DIRNAME | grep $EXTENSION`;
 
 # test if DIRNAME is an empty dir
 if [ -z "$files" ]
@@ -35,12 +35,16 @@ then
 fi
 
 
-# displays all the files using a for loop
+# loops thru all files
 for file in $files
 do
-    echo "$DIRNAME/$file"
-    if [ "$SHOW" = "true" ]
+    # for each filename check for the extension at the end
+    if [ ! -z `echo $file | grep "$EXTENSION$"` ]
     then
-        cat $file
+        echo "$DIRNAME$file"
+        if [ "$SHOW" = "true" ]
+        then
+            cat $file
+        fi
     fi
 done

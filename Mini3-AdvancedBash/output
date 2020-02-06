@@ -20,31 +20,28 @@ Script status code is == 2 ==
 [[[[ FAIL - DIRNAME value not a dir ]]]]
 ********************************************************************************
 ./finder.sh
-Error directory /tmp/__tmp_comp206_a3_dzhang62/nosuchdir does not exist
+Error directory /tmp/__tmp_comp206_a3_DY/nosuchdir does not exist
 Script status code is == 3 ==
 ********************************************************************************
 [[[[ WORKS - but no files with that extension ]]]]
 ********************************************************************************
 ./finder.sh
-Unable to locate any files with extension cfg in /tmp/__tmp_comp206_a3_dzhang62
+Unable to locate any files with extension cfg in /tmp/__tmp_comp206_a3_DY
 Script status code is == 0 ==
 ********************************************************************************
 [[[[ WORKS - without showing contents ]]]]
 ********************************************************************************
 ./finder.sh
-/tmp/__tmp_comp206_a3_dzhang62/first.msg
-/tmp/__tmp_comp206_a3_dzhang62/msg2.txt
-/tmp/__tmp_comp206_a3_dzhang62/second.msg
+/tmp/__tmp_comp206_a3_DYfirst.msg
+/tmp/__tmp_comp206_a3_DYsecond.msg
 Script status code is == 0 ==
 ********************************************************************************
 [[[[ WORKS - shows contents ]]]]
 ********************************************************************************
 ./finder.sh
-/tmp/__tmp_comp206_a3_dzhang62/first.msg
+/tmp/__tmp_comp206_a3_DYfirst.msg
 Hello there, I am first.msg
-/tmp/__tmp_comp206_a3_dzhang62/msg2.txt
-Not all those who wander are lost.
-/tmp/__tmp_comp206_a3_dzhang62/second.msg
+/tmp/__tmp_comp206_a3_DYsecond.msg
 Hi, I am second.msg
 Script status code is == 0 ==
 ********************************************************************************
@@ -61,5 +58,5 @@ fname nouser
 Function status code is ==0==  FNAME value is ==NOTFOUND==
 [[[[ WORKS - user id is found ]]]]
 ********************************************************************************
-fname dzhang62
-Function status code is ==0==  FNAME value is ==Ding==
+fname DY
+Function status code is ==0==  FNAME value is ==NOTFOUND==
