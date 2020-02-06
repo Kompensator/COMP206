@@ -29,8 +29,10 @@ export PS1="\u@\h[\t]:\w$ "
 fortune
 
 # git pull all my repos on the server
-cd ~/java
-git pull
-cd ~/COMP206
-git pull
+for repo in ~/java ~/COMP206
+do
+    cd $repo
+    echo "git pulling $repo repo..."
+    git pull
+done
 cd ~
