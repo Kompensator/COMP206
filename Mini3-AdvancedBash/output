@@ -20,28 +20,28 @@ Script status code is == 2 ==
 [[[[ FAIL - DIRNAME value not a dir ]]]]
 ********************************************************************************
 ./finder.sh
-Error directory /tmp/__tmp_comp206_a3_DY/nosuchdir does not exist
+Error directory /tmp/__tmp_comp206_a3_dzhang62/nosuchdir does not exist
 Script status code is == 3 ==
 ********************************************************************************
 [[[[ WORKS - but no files with that extension ]]]]
 ********************************************************************************
 ./finder.sh
-Unable to locate any files with extension cfg in /tmp/__tmp_comp206_a3_DY
+Unable to locate any files with extension cfg in /tmp/__tmp_comp206_a3_dzhang62
 Script status code is == 0 ==
 ********************************************************************************
 [[[[ WORKS - without showing contents ]]]]
 ********************************************************************************
 ./finder.sh
-/tmp/__tmp_comp206_a3_DYfirst.msg
-/tmp/__tmp_comp206_a3_DYsecond.msg
+/tmp/__tmp_comp206_a3_dzhang62first.msg
+/tmp/__tmp_comp206_a3_dzhang62second.msg
 Script status code is == 0 ==
 ********************************************************************************
 [[[[ WORKS - shows contents ]]]]
 ********************************************************************************
 ./finder.sh
-/tmp/__tmp_comp206_a3_DYfirst.msg
+/tmp/__tmp_comp206_a3_dzhang62first.msg
 Hello there, I am first.msg
-/tmp/__tmp_comp206_a3_DYsecond.msg
+/tmp/__tmp_comp206_a3_dzhang62second.msg
 Hi, I am second.msg
 Script status code is == 0 ==
 ********************************************************************************
@@ -58,5 +58,5 @@ fname nouser
 Function status code is ==0==  FNAME value is ==NOTFOUND==
 [[[[ WORKS - user id is found ]]]]
 ********************************************************************************
-fname DY
-Function status code is ==0==  FNAME value is ==NOTFOUND==
+fname dzhang62
+Function status code is ==0==  FNAME value is ==Ding==
