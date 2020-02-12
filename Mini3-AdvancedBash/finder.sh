@@ -41,7 +41,7 @@ do
     # for each filename check for the extension at the end
     if [ ! -z `echo $file | grep "$EXTENSION$"` ]
     then
-        echo "$DIRNAME$file"
+        echo "$DIRNAME/$file"
         if [ "$SHOW" = "true" ]
         then
             cat $file
