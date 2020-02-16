@@ -33,15 +33,19 @@ int main(int argc, char * argv[]) {
     // hopefully 1000 is enough to avoid using malloc
     char input[1000];
     int index;
+    
     // keep scrambing msgs until EOF breaks the loop
     while(1) {
         fgets(input, 999, stdin);
-        if (strlen(input) == 1 || (input[5] == 'f' && input[6] == 'u')) {
+        // fgets will not alter input if it finds EOF in stdin
+        // so if the first char is still null, then we know the user
+        // has entered EOF, so we exit the program
+        // strlen(input) == 1 when user only press RETURN
+        if (strlen(input) == 1 || input[0] == 0) {
             return 0;
         }
 
         for (unsigned int i = 0;i < strlen(input);i++) {
-
             if (input[i] >= 97 && input[i] <= 122) {
                 // normalize the char so 'a' = 0
                 index = input[i] - 97;
@@ -58,8 +62,9 @@ int main(int argc, char * argv[]) {
             }
         }
         printf("%s", input);
-        input[5] = 'f';
-        input[6] = 'u';
+        // set the first char to null for later use
+        input[0] = 0;
+        
     }
 
     return 0;
