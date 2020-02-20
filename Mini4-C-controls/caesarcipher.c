@@ -12,7 +12,7 @@
  * offset can be negative, the scrambling will occur in resvere
  * Changelog:
  * feb 12: inital version, many bugs to be fixed
- * feb 16: temporary fix, still have to handle neg. offset 
+ * feb 16: temporary fix, still have to handle neg. offset
  * feb 17: neg. offset handled!
  */
 
@@ -23,7 +23,7 @@ int main(int argc, char * argv[]) {
         printf("Error: usage is caesarcipher <offset>\n");
         return 1;
     }
-    
+
     int offset = atoi(argv[1]);
     // handle the case where abs(offset) > 26
     if (abs(offset) > 26) {
@@ -33,7 +33,7 @@ int main(int argc, char * argv[]) {
     // hopefully 1000 is enough to avoid using malloc
     char input[1000];
     int index;
-    
+
     // keep scrambing msgs until EOF breaks the loop
     while(1) {
         fgets(input, 999, stdin);
@@ -64,7 +64,7 @@ int main(int argc, char * argv[]) {
         printf("%s", input);
         // set the first char to null for later use
         input[0] = 0;
-        
+
     }
 
     return 0;
