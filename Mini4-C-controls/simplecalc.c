@@ -1,3 +1,16 @@
+/*
+* Program to implement a simple calculator 
+* Usage: ./simplecalc <x> <op> <y>
+* To compile: $ gcc -o simplecalc simplecalc.c
+* x and y must be integers and op has to be + - * /
+*************************************************************** 
+* Author            Dept.           Date        Notes 
+***************************************************************
+* Ding Yi Zhang     Fac. Science    Feb 17      Initial commmit, inputs working
+* Ding Yi Zhang     Fac. Science    Feb 17      Calculator working!
+* Ding Yi Zhang     Fac. Science    Feb 21      Refined comments
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -34,7 +47,5 @@ int main(int argc, char *argv[]) {
     }
     // prints the answer if the program hasn't exited yet
     printf("%d\n", ans);
-
-
     return 0;
 }

@@ -1,20 +1,26 @@
+/*
+* Caesar Cipher program for basic encryption
+* Usage: ./caesarcipher <offset>
+* to compile: $ gcc -o caesarcipher caesarcipher.c
+* <offset> can be positive or negative, anything in the range of int
+* When ran, enter a message to encrypt, and lower case alphabet letters will be 
+* shifted by <offset>
+* Ex: offset = 2 
+* Hello wor1d -> Hgnnq yqt1f
+*************************************************************** 
+* Author            Dept.           Date        Notes 
+***************************************************************
+* Ding Yi Zhang     Fac. Science    Feb 16      Initial commmit, user input working, EOF -> infinite loop
+* Ding Yi Zhang     Fac. Science    Feb 17      Scrambling working mostly
+* Ding Yi Zhang     Fac. Science    Feb 18      Scramping works! But EOF exit is not working
+* Ding Yi Zhang     Fac. Science    Feb 21      EOF detection + added comments
+*/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-
-/* Auhor: Ding Yi Zhang, Faculty of Science
- * Usage: caesarcipher <offset>
- * This program will scrambles the message you input by
- * the amount you indicated as a command line argument
- * Ex: offset = 3
- * defghijklmnopqrstuvwxyzabc -> abcdefghijklmnopqrstuvwxyz
- * offset can be negative, the scrambling will occur in resvere
- * Changelog:
- * feb 12: inital version, many bugs to be fixed
- * feb 16: temporary fix, still have to handle neg. offset
- * feb 17: neg. offset handled!
- */
 
 
 int main(int argc, char * argv[]) {
@@ -37,10 +43,9 @@ int main(int argc, char * argv[]) {
     // keep scrambing msgs until EOF breaks the loop
     while(1) {
         fgets(input, 999, stdin);
-        // fgets will not alter input if it finds EOF in stdin
-        // so if the first char is still null, then we know the user
-        // has entered EOF, so we exit the program
-        // strlen(input) == 1 when user only press RETURN
+        // fgets will not alter 'input' if it finds nothing but EOF in stdin
+        // so if the first char is still null, then it read EOF -> exit 0
+        // strlen(input) == 1 when user only press RETURN -> exit 0
         if (strlen(input) == 1 || input[0] == 0) {
             return 0;
         }
@@ -54,17 +59,18 @@ int main(int argc, char * argv[]) {
                     input[i] += offset;
                 }
                 else if (offset >= 0) {
+                    // alphabet underflow, back rewind
                     input[i] = input[i] + offset - 26;
                 }
                 else {
+                    // alphabet overflow, forward rewind
                     input[i] = input[i] + offset + 26;
                 }
             }
         }
         printf("%s", input);
-        // set the first char to null for later use
+        // set the first char to null for EOF detection
         input[0] = 0;
-
     }
 
     return 0;
