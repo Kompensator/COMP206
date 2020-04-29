@@ -3,3 +3,19 @@
 # Faculty of Science
 
 a)
+$ gdb a.out
+(gdb) break 6
+(gdb) break 11
+(gdb) run
+hello,world (input into program)
+(gdb) print buffer
+(gdb) print *buffer
+(gdb) continue
+(gdb) print ptr
+(gdb) print *ptr -> Cannot access memory at address 0x0
+
+b)
+This line gives error because the buffer[1000] we created in getInfo() is local to the function,
+and it existed on the stack until getInfo() finished executing. When we try to print ptr which points
+to the start of buffer[1000], the char array already got erased because getInfo finished executing, so
+we end up printing nothing.
