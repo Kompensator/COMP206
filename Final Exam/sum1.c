@@ -15,7 +15,7 @@ int main() {
         // sets arbitrary initial values
         data[i] = i;
     }
-    while(readNumbers("values1.txt", data)) ;
+    while(readNumbers("values1.txt", data, 50)) ;
     int sum = arraySum(data, len);
     writeSum(sum, "sum1.txt");
     return 0;

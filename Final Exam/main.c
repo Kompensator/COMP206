@@ -12,6 +12,7 @@ const int len = 100;
 
 void readfile(char *filename, int *array, int len) {
     /** reads the numbers inside filename to the provided array
+     * not redundunt with readNumbers() in common.c
      */
     FILE *f = fopen(filename, "rt");
     // if file opening isn't successeful, exit the program
@@ -50,7 +51,7 @@ int readSum(char *sumFile) {
     do {
         f = fopen(sumFile, "rt");
     } while (f == NULL);
-    // waits for some more for the sum file to be finished writing...
+    // waits for some more for the sum file to be finished writing
     for (int i = 0; i < 1000000; i++) {
         int j = i * i;
     }

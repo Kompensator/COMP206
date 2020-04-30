@@ -1,3 +1,6 @@
+/** common functions for sum1.c and sum2.c
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -24,8 +27,9 @@ void writeSum(int sum, char *filename) {
     fclose(f);
 }
 
-int readNumbers(char *filename, int *data) {
+int readNumbers(char *filename, int *data, int len) {
     /** reads the ints from a file and store them into data
+     * len is when reading stops
      * returns 0 if most of the entries in data are modified (correct read)
      * returns 1 if most of the entries are NOT modified (value1.txt has not been written yet)
      */
@@ -37,7 +41,7 @@ int readNumbers(char *filename, int *data) {
     while (f == NULL);
     // uses similar logic to readfile in main.c
     char line[16];
-    for (int i=0; !feof(f) && i < 50; i++) {
+    for (int i = 0; !feof(f) && i < len; i++) {
         fgets(line, 15, f);
         data[i] = atoi(line);
     }

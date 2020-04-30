@@ -1,8 +1,20 @@
-program: sum sum1 sum2
-
+all: sum sum1 sum2
+# main.c might need common.h in the future
 sum: main.c
-	gcc main.c -o sum
-sum1: sum1.c
-	gcc sum1.c -o sum1
-sum2: sum2.c
-	gcc sum2.c -o sum2
+	gcc -o sum main.c
+sum1: sum1.o common.o
+	gcc -o sum1 sum1.o common.o
+sum2: sum2.o common.o
+	gcc -o sum2 sum2.o common.o
+sum1.o: sum1.c common.c common.h
+	gcc -c -O2 sum1.c
+sum2.o: sum2.c common.c common.h
+	gcc -c -O2 sum2.c
+common.o: common.c
+	gcc -c common.c
+run:
+	./sum ~/COMP206/Final\ Exam/numbers.txt & ./sum1 & ./sum2
+	rm values1.txt values2.txt
+	rm sum1.txt sum2.txt
+cleanup:
+	rm sum1.o sum2.o common.o
