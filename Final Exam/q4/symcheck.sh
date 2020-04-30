@@ -10,12 +10,14 @@ file=$1
 if [ -z $file ]
 then
     echo "Input file is not provided!"
+    exit 1
 fi
 
 # testing for whether $file exists
 if ! [ -f $file ]
 then
     echo "Input file does not exist!"
+    exit 1
 fi
 
 # if we have not compiled the symword yet, compile it
