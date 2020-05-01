@@ -1,5 +1,21 @@
 A) Git commands:
 // assuming both developers' repo have been initialized
 // after dev1 makes some significant changes
+$ git pull
 $ git add --all
-$ git commit 
+$ git commit -m "Some relevant info about changes"
+$ git push
+
+// after dev2 makes some changes worth commiting
+$ git pull
+$ git add --all
+$ git commit -m "some other important info"
+git push
+
+B)
+Assume dev1 makes a commit with a change in sum1.c which is dev2's responsibility,
+there will be a merge conflict.
+In my experience, the easiest way to resolve this is to create a new branch and merge with Master later
+Commands for dev1:
+$ git checkout -b temp
+$ 
