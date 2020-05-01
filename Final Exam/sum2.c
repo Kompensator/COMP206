@@ -9,6 +9,8 @@
 #include "common.h"
 
 int main() {
+    // this is pratically the same function as in sum1.c, but with different
+    // infile and outfile name
     int len = 50;
     int data[len];
     for (int i = 0; i < len; i++) {
@@ -17,6 +19,6 @@ int main() {
     }
     while(readNumbers("values2.txt", data, 50)) ;
     int sum = arraySum(data, len);
-    writeSum(sum, "sum2.txt");
+    writeArrayToFile(&sum, 0, 1, "sum2.txt");
     return 0;
 }

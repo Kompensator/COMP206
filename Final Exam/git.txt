@@ -1,1 +1,5 @@
-a)
+A) Git commands:
+// assuming both developers' repo have been initialized
+// after dev1 makes some significant changes
+$ git add --all
+$ git commit 

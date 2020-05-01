@@ -17,6 +17,7 @@ int main() {
     }
     while(readNumbers("values1.txt", data, 50)) ;
     int sum = arraySum(data, len);
-    writeSum(sum, "sum1.txt");
+    // writeSum(sum, "sum1.txt");
+    writeArrayToFile(&sum, 0, 1, "sum1.txt");
     return 0;
 }

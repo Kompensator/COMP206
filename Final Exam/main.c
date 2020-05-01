@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
+#include "common.h"
 
 // length of the int array
 const int len = 100;
@@ -13,6 +14,7 @@ const int len = 100;
 void readfile(char *filename, int *array, int len) {
     /** reads the numbers inside filename to the provided array
      * not redundunt with readNumbers() in common.c
+     * readfile() lacks read validation that readNumbers() has
      */
     FILE *f = fopen(filename, "rt");
     // if file opening isn't successeful, exit the program
@@ -24,23 +26,6 @@ void readfile(char *filename, int *array, int len) {
         array[i] = atoi(line);
     }
     fclose(f);
-}
-
-void writeArrayToFile(int *array, int start, int stop, char *filename) {
-    /** Writes parts of an int array to a file called filename
-     * start is included in the slice, stop is NOT included in the slice
-     * writes filename as environment variable to shell
-     */
-    // opens in write mode, always overwrites the content!
-    FILE *output = fopen(filename, "wt");
-    if (output == NULL)    exit(1);
-    char buffer[16];
-    for (int i = start; i < stop; i++) {
-        // holds the string value of the int
-        sprintf(buffer, "%d\n", array[i]);
-        fputs(buffer, output);
-    }
-    fclose(output);
 }
 
 int readSum(char *sumFile) {
@@ -64,6 +49,7 @@ int main(int argc, char *argv[]) {
     char *filename = argv[1];
     int data[100];
     readfile(filename, data, len);
+    // writeArrayToFile() defined in common.c
     writeArrayToFile(data, 0, 50, "values1.txt");
     writeArrayToFile(data, 50, 100, "values2.txt");
     int totalSum = 0;

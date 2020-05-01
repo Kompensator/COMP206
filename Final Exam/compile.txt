@@ -1,0 +1,8 @@
+* In my case, using a Makefile is much better than using a shell script to compile due the modular nature.
+* For example, if I modifify common.c which is used by main.c, sum1.c and sum2.c, make would compile
+all the source files and link them
+* But if I modify sum2.c, it would be inefficient to recompile the other files. All we need is:
+$ gcc -c main.c
+$ gcc -o sum main.o common.o
+* Makefile allows me to only recompile what needs to be recompiled, while a shell script would always recompile
+the whole thing and be less efficient.
