@@ -10,14 +10,17 @@ $ git push
 $ git pull
 $ git add --all
 $ git commit -m "some other important info"
-git push
+$ git push
 
 B)
-Assume dev1 makes a commit with a change in sum1.c which is dev2's responsibility, when dev1 tries to push the commit, there will be a merge conflict.
-In my experience, the easiest way to resolve this is to hard reset to hard rest the HEAD to the last commit
-Commands for dev1:
-$ git log
-$ git reset --hard <last commit ID>
-Commands for dev2:
-$ git log
-$ git reset --hard <last commit ID>
+Assume dev1 made changes to sum2.c which he shouldn't touch, git will not allow him to 
+pull because both dev1 and dev2 changed sum2.c.
+How dev1 can solve this:
+$ git stash
+$ git pull
+$ git stash pop
+Then dev1 has to go to sum2.c and delete his own changes in a text editor. After this, he will be able to pull, commit and push normally.
+
+if dev1 forgot to git pull and commits the changes right away, he will have a nasty merge conflict when he tries to push. In this case, both dev should backup the files that they work on and do:
+$ git rest --hard <last common commit that they both have>
+and replace the files from the older commit with the fresh ones.

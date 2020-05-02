@@ -7,7 +7,7 @@ $ gdb a.out
 (gdb) break 6
 (gdb) break 11
 (gdb) run
-hello,world (input into program)
+hello,world (input into a.out)
 (gdb) print buffer
 (gdb) print *buffer
 (gdb) continue
@@ -16,6 +16,6 @@ hello,world (input into program)
 
 b)
 This line gives error because the buffer[1000] we created in getInfo() is local to the function,
-and it existed on the stack until getInfo() finished executing. When we try to print ptr which points
-to the start of buffer[1000], the char array already got erased because getInfo finished executing, so
+and it existed on the stack (static) until getInfo() finished executing. When we try to print ptr which points
+to the start of buffer[1000], the buffer[1000] already got erased because getInfo() finished executing, so
 we end up printing nothing.
