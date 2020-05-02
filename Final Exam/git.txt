@@ -13,9 +13,11 @@ $ git commit -m "some other important info"
 git push
 
 B)
-Assume dev1 makes a commit with a change in sum1.c which is dev2's responsibility,
-there will be a merge conflict.
+Assume dev1 makes a commit with a change in sum1.c which is dev2's responsibility, when dev1 tries to push the commit, there will be a merge conflict.
 In my experience, the easiest way to resolve this is to hard reset to hard rest the HEAD to the last commit
 Commands for dev1:
-$ git rest --hard <last commit ID>
+$ git log
+$ git reset --hard <last commit ID>
 Commands for dev2:
+$ git log
+$ git reset --hard <last commit ID>
